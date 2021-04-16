@@ -1,0 +1,41 @@
+{
+    "name": "Surviv.io Cheat Injector",
+    "version": "1.0.0",
+    "description": "Provides an assortment of cheats for surviv.io",
+    "manifest_version": 2,
+    "permissions": [
+        "webRequest",
+        "*://*/*",
+        "webRequestBlocking",
+        "tabs",
+        "declarativeContent",
+        "activeTab"
+    ],
+    "externally_connectable": {
+        "matches": [
+            "*://surviv.io/*"
+        ]
+    },
+    "icons": {
+        "128": "./files/ice.png"
+    },
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "web_accessible_resources": [
+        "files/*"
+    ],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "content_scripts": [
+        {
+            "matches": [
+                "*://surviv.io/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
+}
